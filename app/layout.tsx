@@ -5,12 +5,13 @@ import {
   SignUpButton,
   SignedIn,
   SignedOut,
-  UserButton,
 } from "@clerk/nextjs";
+// Here you can import the font
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 
+// Here you can change the font
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
