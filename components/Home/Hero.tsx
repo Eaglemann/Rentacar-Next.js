@@ -11,7 +11,7 @@ function Hero() {
                      bg-clip-text text-transparent drop-shadow-md
                      hover:drop-shadow-lg transition-all duration-300 ease-in-out"
         >
-          Premium cars for renting in your area.
+          Luxury Vehicles at Your Fingertips
         </h2>
 
         <h2
@@ -20,7 +20,7 @@ function Hero() {
                      bg-clip-text text-transparent drop-shadow-md 
                      hover:drop-shadow-lg transition-all duration-300 ease-in-out"
         >
-          Book the car now!
+          Secure your premium driving experience today!
         </h2>
 
         <button
