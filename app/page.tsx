@@ -1,12 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import CarsFilterOptions from "@/components/Home/CarsFilterOptions";
+import CarsList from "@/components/Home/CarsList";
 import Hero from "@/components/Home/Hero";
 import SearchInputs from "@/components/Home/SearchInputs";
 import { ExportCarData } from "@/services/api";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [carLists, setCarList] = useState<any>([]);
+  const [carsLists, setCarsList] = useState<any>([]);
 
   useEffect(() => {
     _getResults();
@@ -15,7 +17,7 @@ export default function Home() {
   const _getResults = async () => {
     const result: any = await ExportCarData();
     console.log(result);
-    setCarList(result?.carLists);
+    setCarsList(result?.carLists);
   };
 
   return (
@@ -23,6 +25,7 @@ export default function Home() {
       <Hero />
       <SearchInputs />
       <CarsFilterOptions />
+      <CarsList carsLists={carsLists} />
     </div>
   );
 }

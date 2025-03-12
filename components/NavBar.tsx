@@ -34,7 +34,7 @@ function NavBar() {
         </h2>
       </div>
 
-      <div className="flex items-center">
+      <div className="flex items-center p-2 bg-gray-100 rounded-full shadow-sm hover:shadow-md transition-all duration-300">
         <UserButton />
       </div>
     </div>

@@ -12,6 +12,10 @@ export const ExportCarData = async () => {
         publishedAt
         updatedAt
         seats
+        carType
+        image {
+          url
+        }
       }
     }
   `;
