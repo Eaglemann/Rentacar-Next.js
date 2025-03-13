@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import Image from "next/image";
-import { PiSteeringWheelFill } from "react-icons/pi";
+import { PiSeatFill } from "react-icons/pi";
+import { BsFillFuelPumpFill } from "react-icons/bs";
+import { TbManualGearboxFilled } from "react-icons/tb";
 
 function CarCard(props: any) {
   const [car, setCar] = useState(props.car);
@@ -59,19 +61,19 @@ function CarCard(props: any) {
       >
         {/* Car Type */}
         <div className="text-center text-gray-500">
-          <PiSteeringWheelFill className="text-[22px] mb-2 text-blue-500" />
+          <TbManualGearboxFilled className="text-[22px] mb-2 text-blue-500" />
           <h2 className="text-[14px] font-light">{car.carType}</h2>
         </div>
 
         {/* Seats */}
         <div className="text-center text-gray-500">
-          <PiSteeringWheelFill className="text-[22px] mb-2 text-blue-500" />
+          <PiSeatFill className="text-[22px] mb-2 text-blue-500" />
           <h2 className="text-[14px] font-light">{car.seats} Seats</h2>
         </div>
 
         {/* MPG */}
         <div className="text-center text-gray-500">
-          <PiSteeringWheelFill className="text-[22px] mb-2 text-blue-500" />
+          <BsFillFuelPumpFill className="text-[22px] mb-2 text-blue-500" />
           <h2 className="text-[14px] font-light">{car.carAvg} MPG</h2>
         </div>
       </div>
