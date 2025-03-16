@@ -13,6 +13,7 @@ export const ExportCarData = async () => {
         updatedAt
         seats
         carType
+        carBrand
         image {
           url
         }

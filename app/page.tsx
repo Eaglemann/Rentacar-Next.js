@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [carsLists, setCarsList] = useState<any>([]);
+  const [carOriginalList, setCarOriginalList] = useState<any>([]);
 
   useEffect(() => {
     _getResults();
@@ -18,13 +19,24 @@ export default function Home() {
     const result: any = await ExportCarData();
     console.log(result);
     setCarsList(result?.carLists);
+    setCarOriginalList(result?.carLists);
+  };
+
+  const filterCarList = (brand: string) => {
+    const filteredList = carOriginalList.filter(
+      (car: any) => car.carBrand == brand
+    );
+    setCarsList(filteredList);
   };
 
   return (
     <div className="p-5 sm:p-10 md:p-20">
       <Hero />
       <SearchInputs />
-      <CarsFilterOptions />
+      <CarsFilterOptions
+        carList={carOriginalList}
+        setBrand={(value: string) => filterCarList(value)}
+      />
       <CarsList carsLists={carsLists} />
     </div>
   );

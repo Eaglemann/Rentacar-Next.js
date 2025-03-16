@@ -1,6 +1,22 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
-function CarsFilterOptions() {
+function CarsFilterOptions({ carList, setBrand }: any) {
+  const BrandSet = new Set<string>();
+  const [brandList, setBrandList] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (carList) {
+      filterCarList();
+    }
+  }, [carList]);
+
+  const filterCarList = () => {
+    carList.forEach((car: any) => {
+      BrandSet.add(car.carBrand);
+    });
+    setBrandList(Array.from(BrandSet));
+  };
+
   return (
     <div className="mt-10 flex flex-wrap items-center justify-between gap-6">
       {/* Left Section - Title */}
@@ -35,11 +51,13 @@ function CarsFilterOptions() {
                      rounded-lg px-4 py-2 text-gray-700  
                      focus:ring focus:ring-blue-300 transition-all"
           defaultValue="Choose Model"
+          onChange={(e) => setBrand(e.target.value)}
         >
           <option disabled>Choose Model</option>
-          <option>Audi</option>
-          <option>BMW</option>
-          <option>Mercedes</option>
+          {brandList.map((brand: string, index: number) => (
+            <option key={index}>{brand}</option>
+          ))}
+          ;
         </select>
       </div>
     </div>
