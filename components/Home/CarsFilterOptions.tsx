@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function CarsFilterOptions({ carList, setBrand }: any) {
+function CarsFilterOptions({ carList, setBrand, orderCarList }: any) {
   const BrandSet = new Set<string>();
   const [brandList, setBrandList] = useState<string[]>([]);
 
@@ -39,10 +39,11 @@ function CarsFilterOptions({ carList, setBrand }: any) {
                      rounded-lg px-4 py-2 text-gray-700 
                      focus:ring focus:ring-blue-300 transition-all"
           defaultValue="Price"
+          onChange={(e) => orderCarList(e.target.value)}
         >
           <option disabled>Price</option>
-          <option>Min to Max</option>
-          <option>Max to Min</option>
+          <option value={-1}>Min to Max</option>
+          <option value={1}>Max to Min</option>
         </select>
 
         {/* Model Filter */}
