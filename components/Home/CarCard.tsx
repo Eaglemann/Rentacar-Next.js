@@ -1,12 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { PiSteeringWheelFill } from "react-icons/pi";
 
 function CarCard(props: any) {
-  const [car, setCar] = useState(props.car);
+  const [car, setCar] = useState<any>();
 
-  return (
+  useEffect(()=>{
+    if(props.car){
+      setCar(props.car)
+
+    }
+
+  }, [props.car])
+
+  return car&&(
     <div
       className="group bg-gray-50 p-4 border border-transparent 
       hover:bg-white hover:border-blue-500 shadow-md rounded-xl 
