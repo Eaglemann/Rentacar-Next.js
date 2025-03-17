@@ -1,14 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { PiSeatFill } from "react-icons/pi";
 import { BsFillFuelPumpFill } from "react-icons/bs";
 import { TbManualGearboxFilled } from "react-icons/tb";
 
 function CarCard(props: any) {
-  const [car, setCar] = useState(props.car);
+  const [car, setCar] = useState<any>();
 
-  return (
+  useEffect(()=>{
+    if(props.car){
+      setCar(props.car)
+
+    }
+
+  }, [props.car])
+
+  return car&&(
     <div
       className="group bg-gray-50 p-4 border border-transparent 
       hover:bg-white hover:border-blue-500 shadow-md rounded-xl 
