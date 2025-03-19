@@ -1,7 +1,30 @@
-import React from "react";
-
+import { getStoreLocations } from "@/services/api";
+import React, { useEffect, useState } from "react";
 
 function Form() {
+  const [storeLocation, setStoreLocation] = useState<string[]>([]);
+  const today = new Date().toISOString().split("T")[0];
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  useEffect(() => {
+    _getStoreLocations();
+  }, []);
+
+  const _getStoreLocations = async () => {
+    try {
+      const res: any = await getStoreLocations();
+      console.log(res);
+      setStoreLocation(
+        res?.storesLocations?.map(
+          (store: { storeLocation: any }) => store.storeLocation
+        ) || []
+      );
+    } catch (error) {
+      console.error("Error fetching store locations:", error);
+      setStoreLocation([]); // Ensures no crash on failure
+    }
+  };
+
   return (
     <div>
       {/* Booking Form */}
@@ -12,11 +35,12 @@ function Form() {
             📍 Pickup Location
           </label>
           <select className="select select-bordered w-full text-white bg-gray-800 border-gray-600 rounded-lg focus:ring-2 focus:ring-cyan-500">
-            <option disabled selected>
-              Choose Location
-            </option>
-            <option>Berlin</option>
-            <option>Munich</option>
+            <option disabled>Choose Location</option>
+            {storeLocation.map((store, idx) => (
+              <option key={idx} value={store}>
+                {store}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -28,6 +52,7 @@ function Form() {
             </label>
             <input
               type="date"
+              defaultValue={today}
               className="input input-bordered w-full text-white bg-gray-800 border-gray-600 rounded-lg focus:ring-2 focus:ring-cyan-500"
             />
           </div>
@@ -72,6 +97,8 @@ function Form() {
           <input
             type="tel"
             placeholder="Enter phone number"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
             className="input input-bordered w-full text-white bg-gray-800 border-gray-600 rounded-lg focus:ring-2 focus:ring-cyan-500"
           />
         </div>
