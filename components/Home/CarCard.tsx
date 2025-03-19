@@ -44,7 +44,7 @@ function CarCard(props: any) {
             ? car.image[0].url
             : "/fallback-image.jpg"
         }
-        alt={car.name}
+        alt={car?.name}
         width={250}
         height={150}
         className="w-full h-[180px] mt-4 rounded-lg object-cover shadow-lg 

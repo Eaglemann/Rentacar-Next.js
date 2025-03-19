@@ -27,3 +27,19 @@ export const ExportCarData = async () => {
   );
   return result;
 };
+
+export const getStoreLocations = async () => {
+  const query = gql`
+    query GetStoreLocations {
+      storesLocations {
+        storeLocation
+      }
+    }
+  `;
+
+  const result = await request(
+    "https://eu-west-2.cdn.hygraph.com/content/cm7z6hquz00oi07wfpdww0lwk/master",
+    query
+  );
+  return result;
+};
