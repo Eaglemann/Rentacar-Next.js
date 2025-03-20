@@ -3,6 +3,7 @@ import CarCard from "../Home/CarCard";
 import Form from "./Form";
 
 function BookingModal({ car }: any) {
+
   return (
     <form
       method="dialog"
@@ -21,18 +22,10 @@ function BookingModal({ car }: any) {
           <CarCard car={car} />
         </div>
 
-        <Form />
+        <Form car={car}/>
       </div>
 
-      {/* Modal Actions */}
-      <div className="modal-action mt-5 flex justify-between">
-        <button className="btn text-white text-lg font-medium py-3 px-6 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 hover:opacity-90 transition-all">
-          🚀 Confirm Booking
-        </button>
-        <button className="btn text-gray-300 bg-gray-700 hover:bg-gray-600 rounded-lg px-5 py-2 transition-all">
-          ❌ Close
-        </button>
-      </div>
+      
     </form>
   );
 }

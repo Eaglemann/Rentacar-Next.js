@@ -18,7 +18,6 @@ export default function Home() {
 
   const _getResults = async () => {
     const result: any = await ExportCarData();
-    console.log(result);
     setCarsList(result?.carLists);
     setCarOriginalList(result?.carLists);
   };
