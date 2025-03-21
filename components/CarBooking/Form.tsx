@@ -1,8 +1,12 @@
+import { BookingCreatedContext } from "@/app/context/BookingCreatedContext";
 import { getStoreLocations, createBooking } from "@/services/api";
-import React, { use, useEffect, useState } from "react";
+import React, { use, useContext, useEffect, useState } from "react";
 
 function Form({ car }: any) {
   const [storeLocation, setStoreLocation] = useState<string[]>([]);
+  const { showToastMessage, setShowToastMessage } = useContext(
+    BookingCreatedContext
+  );
   const today = new Date().toISOString().split("T")[0];
   const [formValue, setFormValue] = useState({
     pickupLocation: "",
@@ -51,6 +55,9 @@ function Form({ car }: any) {
 
   const handleSubmitRequest = async () => {
     const createCarBooking = await createBooking(formValue);
+    if (createCarBooking) {
+      setShowToastMessage(true);
+    }
   };
 
   return (
