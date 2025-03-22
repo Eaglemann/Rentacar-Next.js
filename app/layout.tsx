@@ -10,6 +10,7 @@ import {
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
 // Here you can change the font
 const geistSans = Geist({
@@ -41,10 +42,14 @@ export default function RootLayout({
           <SignedOut>
             <SignInButton />
             <SignUpButton />
+            <NavBar />
+            {children}
+            <Footer />
           </SignedOut>
           <SignedIn>
             <NavBar />
             {children}
+            <Footer />
           </SignedIn>
         </body>
       </html>
