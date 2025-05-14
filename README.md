@@ -9,15 +9,14 @@ A modern car rental application built with Next.js, designed for seamless user e
 -   **Search and Filter:** Easily find the perfect car using advanced search and filter options.
 -   **Reservation Management:** Manage your car rentals, view booking history, and modify upcoming reservations.
 -   **User Authentication:** Secure user accounts with login, registration, and password recovery features.
--   **Admin Dashboard:** (If applicable) An interface for administrators to manage cars, users, and bookings.
 
 ## Technologies
 
 -   [Next.js](https://nextjs.org): React framework for building performant web applications.
 -   [React](https://reactjs.org): JavaScript library for building user interfaces.
--   [Tailwind CSS](https://tailwindcss.com): (If applicable) Utility-first CSS framework for rapid UI development.
--   [Prisma](https://www.prisma.io/): (If applicable) Next-generation ORM for Node.js & TypeScript.
--   [NextAuth.js](https://next-auth.js.org/): (If applicable) Authentication for Next.js.
+-   [Tailwind CSS](https://tailwindcss.com):  Utility-first CSS framework for rapid UI development.
+-   [Prisma](https://www.prisma.io/):  Next-generation ORM for Node.js & TypeScript.
+-   [NextAuth.js](https://next-auth.js.org/):  Authentication for Next.js.
 
 ## Getting Started
 
@@ -27,7 +26,7 @@ Follow these steps to get the project up and running on your local machine.
 
 -   [Node.js](https://nodejs.org) (version 18 or higher)
 -   [npm](https://www.npmjs.com) or [yarn](https://yarnpkg.com) or [pnpm](https://pnpm.io) installed
--   (If applicable) A database instance (e.g., PostgreSQL, MySQL)
+-   A database instance (e.g., PostgreSQL, MySQL)
 
 ### Installation
 
